@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zgA-pS-1V3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,128 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5h7-bU-oi3">
+                                <rect key="frame" x="120" y="308" width="135" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LJo-Le-r6V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="录音"/>
+                                <connections>
+                                    <segue destination="Pb1-mm-ioI" kind="show" id="fr7-Dw-dV8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrB-XX-MOx">
+                                <rect key="frame" x="120" y="228" width="135" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cuC-Bz-aN6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="播放本地音频"/>
+                                <connections>
+                                    <segue destination="UmK-SY-zuZ" kind="show" id="hV6-VP-Dii"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5h7-bU-oi3" secondAttribute="trailing" constant="120" id="K5F-ui-Rwd"/>
+                            <constraint firstItem="5h7-bU-oi3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="OJA-i2-SUd"/>
+                            <constraint firstItem="5h7-bU-oi3" firstAttribute="top" secondItem="TrB-XX-MOx" secondAttribute="bottom" constant="40" id="SKE-7p-vi1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TrB-XX-MOx" secondAttribute="trailing" constant="120" id="cRA-CX-Qtw"/>
+                            <constraint firstItem="TrB-XX-MOx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="dbu-Od-NM0"/>
+                            <constraint firstItem="TrB-XX-MOx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="164" id="xPN-bH-1ur"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pk5-2o-lty"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="36" y="16"/>
+        </scene>
+        <!--Recorder View Controller-->
+        <scene sceneID="dHc-Yq-02y">
+            <objects>
+                <viewController id="Pb1-mm-ioI" customClass="RecorderViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y3c-rx-YaO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eur-BU-Cat">
+                                <rect key="frame" x="120" y="527" width="135" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="SbY-bK-X1w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="开始录音"/>
+                                <connections>
+                                    <action selector="startRecord:" destination="Pb1-mm-ioI" eventType="touchUpInside" id="psc-gw-zkF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UM-Cf-igY">
+                                <rect key="frame" x="120" y="577" width="135" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Lj8-Jj-KnC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="结束录音"/>
+                                <connections>
+                                    <action selector="stopRecord:" destination="Pb1-mm-ioI" eventType="touchUpInside" id="oFN-8p-f8S"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2UM-Cf-igY" firstAttribute="leading" secondItem="lY3-Gl-hhX" secondAttribute="leading" constant="120" id="1SD-ZR-sWP"/>
+                            <constraint firstItem="eur-BU-Cat" firstAttribute="leading" secondItem="lY3-Gl-hhX" secondAttribute="leading" constant="120" id="Qlp-5Y-qgR"/>
+                            <constraint firstItem="lY3-Gl-hhX" firstAttribute="trailing" secondItem="eur-BU-Cat" secondAttribute="trailing" constant="120" id="b8J-lK-ZXI"/>
+                            <constraint firstItem="2UM-Cf-igY" firstAttribute="top" secondItem="eur-BU-Cat" secondAttribute="bottom" constant="10" id="iai-Xz-4ZP"/>
+                            <constraint firstItem="lY3-Gl-hhX" firstAttribute="trailing" secondItem="2UM-Cf-igY" secondAttribute="trailing" constant="120" id="pEK-5q-SyY"/>
+                            <constraint firstItem="lY3-Gl-hhX" firstAttribute="bottom" secondItem="eur-BU-Cat" secondAttribute="bottom" constant="100" id="pIU-6K-70Y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lY3-Gl-hhX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vhh-kg-UzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.79999999999995" y="327.88605697151428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dRy-IM-rdy">
+            <objects>
+                <navigationController id="zgA-pS-1V3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LzC-4c-fHh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hno-i7-D6N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGi-mC-Ti4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-802" y="16"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="kQ8-Bf-Xy8">
+            <objects>
+                <viewController id="UmK-SY-zuZ" customClass="PlayerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lha-s6-Zc4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="JWs-mS-93K"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0rZ-Vg-0Kz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="-455"/>
         </scene>
     </scenes>
 </document>

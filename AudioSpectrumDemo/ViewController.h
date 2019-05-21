@@ -2,14 +2,16 @@
 //  ViewController.h
 //  AudioSpectrumDemo
 //
-//  Created by user on 2019/5/8.
+//  Created by user on 2019/5/21.
 //  Copyright © 2019 adu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface ViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
